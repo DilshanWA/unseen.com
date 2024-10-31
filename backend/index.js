@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3001;
 
-const API_KEY = '-pA9PWg97K8nRP-76aV5oP8j_p2TXoJ0_WQpBu7nRWY';
+const API_KEY = 'API_KEY';
 const apiUrl = 'https://api.unsplash.com/photos/random';
 const apiUrl2 = 'https://api.unsplash.com/search/photos'
 
