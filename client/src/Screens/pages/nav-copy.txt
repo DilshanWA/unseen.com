@@ -1,0 +1,338 @@
+import React, { useState, useEffect } from 'react';
+import largeLogo from '../images/logo.png';
+import Searchbox from '../pages/searchbox'
+import smallLogo from '../images/smallogo.png';
+import { Link } from 'react-router-dom';
+import '../styles/nav.css';
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+import { IoSearchOutline } from "react-icons/io5";
+
+function Nav() {
+  const [isNavVisible, updateNavVisible] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [searchisopen, setSearchopen] = useState(false);
+  const [issearchboxpopup, setsearchboxPopup] = useState(false);
+
+  const toggleNavbar = () => {
+    updateNavVisible(!isNavVisible);
+  };
+
+  const closeSidebar = () => {
+    updateNavVisible(false);
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsFixed(true);
+      setSearchopen(true);
+      if (!isSmallScreen) {
+        setIsSearchVisible(true);
+      }
+    } else {
+      setIsFixed(false);
+      setIsSearchVisible(false);
+      setSearchopen(false);
+      setsearchboxPopup(false)
+    }
+  };
+
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setIsSmallScreen(true);
+    } else {
+      setIsSmallScreen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      setsearchboxPopup(false)
+    };
+  }, []);
+
+  const handlesearch = () => {
+    setsearchboxPopup(true)
+  };
+
+  return (
+    <div>
+      <div className={`main ${isFixed ? 'fixed' : ''}`}>
+        <div className="logo">
+          <img src={isSmallScreen ? smallLogo : largeLogo} alt="Logo" />
+        </div>
+        {!isSmallScreen && isSearchVisible && (
+          <div className="inputbox">
+            <IoSearchOutline className='searchIcon' id='nav_search_ico'/>
+            <input
+              type="search"
+              className="nav_search_input"
+              placeholder="Search for all images in unseen"
+            />
+          </div>
+        )}
+
+        <div style={{ display: 'flex' }}>
+          {isSmallScreen && (
+            <div style={{ display: 'flex', alignItems: 'center' }} className='btn_box'>
+              {searchisopen && (
+                <>
+                  <IoSearchOutline className='searchIcon_nav' onClick={handlesearch}/>
+                </>
+              )}
+              {issearchboxpopup && <Searchbox/>}
+
+              <button id='login'>Login</button>
+              <button id='join'>Join</button>
+            </div>
+          )}
+          <AiOutlineMenuFold onClick={toggleNavbar} className="menu-icon" />
+          <div className={`sidebar ${isNavVisible ? 'visible' : ''}`}>
+            <AiOutlineMenuUnfold className="closeIcon" onClick={closeSidebar} />
+            <ul className="navbar_menu">
+              <li>Explore More</li>
+              <li>Join</li>
+              <li>SignUp</li>
+              {!isSmallScreen && (
+                <li><button id='sign_up'>Sign up</button></li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  );
+}
+
+export default Nav;
+
+
+
+stylesss
+
+
+
+
+/*Start Smaller Screen*/
+
+    .hero {
+        width: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/background3.jpg');
+        background-size: cover;
+        height: 60vh;
+        background-position-x: center;
+        background-attachment: fixed;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .headerText
+    {
+        width: 80%;
+        height: auto;
+        font-size: 22px;
+        color: #ffff;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .headerText #smaller_text
+    {
+      font-weight: lighter;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .hero .inputbox
+    {
+        width: 80%;
+        height: auto;
+        margin: 18px 0;
+        display: flex;
+        padding:  0 8px;
+        justify-content: center;
+        background-color: #ffff;
+        border-radius: 50px;
+    }
+    .inputbox input
+    {
+        width:89%;
+        padding: 20px 12px;
+        outline: none;
+        border: none;
+        resize: none;
+        background-color: #ffff;
+        border-radius: 50px;
+       
+    }
+
+    .inputbox .searchIcon
+    {
+        cursor: pointer;
+        align-self: center;
+        font-size: 25px;
+    }
+
+
+    .hero .search_box
+    {
+        width: 80%;
+        padding: 15px ;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        font-size: 15px;
+        padding-left: 35px;
+    }
+
+
+    .grid-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .images
+      {
+        gap: 16px;
+        max-width: 95%;
+        columns: 4 340px;
+        margin-bottom: 35px;
+        list-style: none;
+      }
+      
+      .grid-container.images .card {
+        width: 100%;
+        display: flex;
+        cursor: zoom-in;
+        overflow: hidden;
+        position: relative;
+        flex-direction: row;
+        margin-bottom: 14px;
+        border-radius: 4px;
+      }
+    
+      
+      .grid-container .images img {
+        width: 100%;
+        height: auto;
+      }
+
+
+      @media only screen and (min-width: 601px) {
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: poppins,sans-serif;
+        }
+    
+        .hero {
+            width: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/background2.jpg');
+            background-size: cover;
+            height: 80vh;
+            background-position-x: center;
+            background-attachment: fixed;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        .headerText
+        {
+            width: 60%;
+            height: auto;
+            font-size: 30px;
+            color: #ffff;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .headerText #smaller_text
+        {
+          font-weight: lighter;
+          font-size: 15px;
+        }
+
+        .hero .inputbox
+        {
+            width: 60%;
+            height: auto;
+            margin: 18px 0;
+            display: flex;
+            padding:  0 10px;
+            justify-content: center;
+            background-color: #ffff;
+            border-radius: 50px;
+        }
+        .inputbox input
+        {
+            width: 95%;
+            padding: 20px 12px;
+            outline: none;
+            border: none;
+            resize: none;
+            background-color: #ffff;
+            border-radius: 50px;
+           
+        }
+
+        .inputbox .searchIcon
+        {
+            cursor: pointer;
+            align-self: center;
+            font-size: 25px;
+        }
+    
+    
+        .grid-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+            flex-wrap: wrap;
+          }
+    
+          .images
+          {
+            gap: 16px;
+            max-width: 95%;
+            columns: 4 340px;
+            margin-bottom: 35px;
+            list-style: none;
+          }
+          
+          .grid-container.images .card {
+            width: 100%;
+            display: flex;
+            cursor: zoom-in;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 14px;
+            border-radius: 4px;
+          }
+        
+          
+          .grid-container .images img {
+            width: 100%;
+            height: auto;
+            cursor: zoom-in;
+          }
+    }
+    

@@ -1,0 +1,305 @@
+import React, { useState, useEffect } from 'react';
+import Navbar from '../nav/nav';
+import '../styles/ImageDetails.css';
+import { useLocation } from 'react-router-dom';
+import { FaRegHeart } from "react-icons/fa";
+import { BiComment } from "react-icons/bi";
+import { MdModeComment } from "react-icons/md";
+import { FaShareAlt } from "react-icons/fa";
+import { saveAs } from 'file-saver';
+import GreenHeart from '../images/green.png'
+import { IoClose } from "react-icons/io5";
+import { PiCheckCircleBold } from "react-icons/pi";
+import { FaRegBookmark , FaCircleInfo, FaUserPlus,} from "react-icons/fa6";
+
+function ImageDetails() {
+  const location = useLocation();
+  const { image } = location.state;
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isInfroIconClicked, setUpdateInfoBtnClicked] = useState(false);
+  const[isDownloading,settextDownload] = useState(false)
+  const [likeCount, setLikeCount] = useState(image.likes);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isSignorLogin,setSignuplogin] = useState('')
+  const [showAll, setShowAll] = useState(true);
+
+
+  const handleResize = () => {
+    if (window.innerWidth <= 1252) {
+      setIsSmallScreen(true);
+    } else {
+      setIsSmallScreen(false);
+    }
+  };
+
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
+
+  const infroBoxHandle = () => {
+    setUpdateInfoBtnClicked(prevState => !prevState);
+  }
+
+  const handleDownload = (url, filename) => {
+    saveAs(url, filename);
+    settextDownload(true)
+    setTimeout(() => {
+      settextDownload(false);
+    }, 2000);
+  };
+
+  const infoBoxClose =()=>{
+    setUpdateInfoBtnClicked(!isInfroIconClicked)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize(); 
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  const HndleLikeCount = () => {
+    if (isLiked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+    setIsLiked(!isLiked);
+  };
+
+
+
+  return (
+    <div>
+      <Navbar />
+      {isSmallScreen && (
+        <div className="upper-box">
+          <div className="text_u">
+            <PiCheckCircleBold id='correct_sign'/>
+            <p>Free for use under the Unseen Content License</p>
+          </div>
+          <div className='btn-box-upper'>
+            <button id="main_buttons">Edit Image</button>
+            <button id="main_buttons" style={{ backgroundColor: '#00AB6B', border: 'none', color: '#fff' }} onClick={() => handleDownload(image.urls.full, `image-${image.id}.jpg`)}>{isDownloading ? 'Downloading....': 'Download'}</button>
+          </div> 
+        </div>
+      )}
+      <div className="main_box">
+        <div className="image_box">
+          <img src={image.urls.full} alt="" />
+          {!isSmallScreen && (
+            <div className="comment_main_box">
+              <BiComment style={{fontSize:'20px',marginBottom:'10px'}}/>
+              <h4>The community are waiting to hear from you!</h4>
+              <p id='cmt_p'>Log in or Join Pixabay to view comments</p>
+              <div className="cmt_btns">
+                <button id='login'>Log in</button>
+                <button style={{backgroundColor:'#00AB6B',border:'none',color:'#fff'}}>Join with Unseen</button>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="Details_box">
+          <div className="boxInnerDetails">
+            {!isSmallScreen && (
+              <div className="btn-box-lower">
+                <div className="text_u">
+                  <PiCheckCircleBold id='correct_sign'/>
+                  <p>Free for use under the Unseen Content License</p>
+                </div>
+                 <div style={{display:'flex'}}>
+                    <button id="main_buttons" style={{marginLeft:'0'}}>Edit Image</button>
+                    <button id="main_buttons" style={{marginRight:'0',backgroundColor:'#00AB6B',color:'#fff',border:'none'}} onClick={() => handleDownload(image.urls.full, `image-${image.id}.jpg`)} >{isDownloading ? 'Downloading....': 'Download'}</button>
+                 </div>
+              </div>
+            )}
+           {isSmallScreen ? 
+              <div className="space_between_box">
+                  <div className="btn_sets_1">
+                    <div className="set_1_btn1">
+                      <button onClick={HndleLikeCount} className={isLiked ? 'Liked':''}>
+                        {isLiked ? (
+                        <img src={GreenHeart} id='iconLiked'/>
+                        ):<FaRegHeart id='icon'/>
+                        }
+
+                        <h3>{likeCount}</h3>
+                      </button>
+                    </div>
+                    <div className="set_1_btn1">
+                      <div className="separete_btn">
+                        <button><FaRegBookmark id='icon_other'/></button>
+                        <button><BiComment id='icon_other'/></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="btn_sets_2">
+                    <button><FaShareAlt id='icon_other'/></button>
+                    <button><FaCircleInfo id='icon_other' onClick={infroBoxHandle}/></button>
+                  </div>
+              </div>
+           : 
+           <div className="btnbox_largescreen">
+              <div className="moreWidthbtn">
+              <button onClick={HndleLikeCount} className={isLiked ? 'Liked':''}>
+                  {isLiked ? (
+                    <img src={GreenHeart} id='iconLiked'/>
+                    ):<FaRegHeart id='icon'/>
+                  }
+                    <h3>{likeCount}</h3>
+                </button>
+                <button><FaRegBookmark id='icon'/><h3>Save</h3></button>
+              </div>
+              <div className="lessWidthbtn">
+                <button><MdModeComment id='icon_other'/></button>
+                <button><FaShareAlt id='icon_other'/></button>
+              </div>
+            </div>
+           }
+              
+          <hr id='hr_rul'/>
+
+          {isSmallScreen && (
+              <p id='alt_discripction'>{image.alt_description}</p>
+          )}
+           <hr id='hr_rul'/>
+
+              <div className="profile">
+                <div className="image_and_names">
+                  <div className="profile_image">
+                    <img src={image.user.profile_image.small} alt="Profile of Owner"/>
+                  </div>
+                  <div className="name_fallowers">
+                    <h3>{image.user.name}</h3>
+                    <p>{image.views} followers</p>
+                  </div>
+                </div>
+                <div className="follow_btn">
+                  <FaUserPlus id='follow'/>
+                  <h4>Follow</h4>
+                </div>
+              </div>
+
+
+            {!isSmallScreen && (
+            
+            <div className='ImageDetails_pc'>
+              <div className="popupFotterDetails" style={{ maxHeight: showAll ? '90px' : '500px', overflow: 'hidden' }}>
+                  <div className="texts">
+                    <p>Views</p>
+                    <p>{image.views}</p>
+                  </div>
+                  <div className="texts">
+                    <p>Downloads</p>
+                    <p>{image.downloads}</p>
+                  </div>
+                  <div className="texts">
+                    <p>Camera</p>
+                    {image.exif.make === null ? <p>not provided</p> : <p>{image.exif.make}</p>}
+                  </div>
+                  <div className="texts">
+                    <p>Model</p>
+                    {image.exif.model === null ? <p>not provided</p> : <p>{image.exif.model}</p>}
+                  </div>
+                  <div className="texts">
+                    <p>Country</p>
+                    <p>{image.location.country}</p>
+                  </div>
+                  <div className="texts">
+                    <p>City</p>
+                    <p>{image.location.city}</p>
+                  </div>
+                  <div className="texts">
+                    <p>Published date</p>
+                    <p>{image.promoted_at}</p>
+                  </div>
+                  <div className="texts">
+                    <p>Resolution</p>
+                    <p>{image.width} x {image.height}</p>
+                  </div>
+              </div>
+                <div className="show_and_hide_btn">
+                  {showAll && <button onClick={toggleShowAll}><u>Show All Details</u></button>}
+                  {!showAll && <button onClick={toggleShowAll}><u>Hide Details</u></button>}
+               </div>
+             <button id='Report_btn'>Report</button>
+        </div>
+      )}
+
+
+      </div>
+    </div>
+
+
+        {isSmallScreen &&(
+          <div>
+            <div className="after-profile">
+             <button>Donate</button>
+            </div>
+            <h4 style={{marginLeft:'19px'}}>Comments</h4>
+            <div className="comment_main_box">
+              <BiComment style={{fontSize:'20px',marginBottom:'10px'}}/>
+              <h4 id='cmt_h4'>The community are waiting to hear <br /> from you!</h4>
+              <p id='cmt_p'>Log in or Join Pixabay to view comments</p>
+              <div className="cmt_btns">
+                <button id='login'>Log in</button>
+                <button style={{backgroundColor:'#00AB6B',border:'none',color:'#fff'}}>Join Unseen</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {isInfroIconClicked && (
+      <div className={`Image-info_popup ${isInfroIconClicked ? 'open' : ''}`}>
+        <div className="popupHeader">
+            <h4>Image Infromation </h4>
+            <IoClose onClick={infoBoxClose}/>
+        </div>
+        <hr id='hr_bottom'/>
+         <div className="popupFotterDetails">
+           <div className="texts">
+              <p>Views</p>
+              <p>{image.views}</p>
+           </div>
+           <div className="texts">
+              <p>Dwonloads</p>
+              <p>{image.downloads}</p>
+           </div>
+           <div className="texts">
+              <p>Camera</p>
+              {image.exif.make === null ? <p>not provided</p> : <p>{image.exif.make}</p>}
+           </div>
+           <div className="texts">
+              <p>Model</p>
+              {image.exif.model === null ? <p>not provided</p> : <p>{image.exif.model}</p>}
+           </div>
+           <div className="texts">
+              <p>Country</p>
+              <p>{image.location.country}</p>
+           </div>
+           <div className="texts">
+              <p>City</p>
+              <p>{image.location.city}</p>
+           </div>
+           <div className="texts">
+              <p>Published date</p>
+              <p>{image.promoted_at}</p>
+           </div>
+           <div className="texts">
+              <p>Resolution</p>
+              <p>{image.width} x {image.height}</p>
+           </div>
+           <button>Report</button>
+         </div>
+      </div>
+    )}
+    </div>
+  );
+}
+
+export default ImageDetails;

@@ -1,0 +1,39 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .images
+  {
+    gap: 16px;
+    max-width: 95%;
+    columns: 4 340px;
+    margin-bottom: 35px;
+    list-style: none;
+  }
+  
+  .grid-container.images .card {
+    width: 100%;
+    display: flex;
+    cursor: zoom-in;
+    overflow: hidden;
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 14px;
+    border-radius: 4px;
+  }
+
+  
+  .grid-container .images img {
+    width: 100%;
+    height: auto;
+  }

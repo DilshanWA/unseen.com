@@ -1,0 +1,245 @@
+
+/*Mobile Screens*/
+@media only screen and (max-width: 768px){
+    .mainBox
+    {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .mainBox .Details_Box_second
+    {
+        display: none;
+    }
+    .mainBox .imageBox
+    {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mainBox .LargeSetup
+    {
+        width: 100%;
+    }
+    .large_header-tbn
+    {
+        display: none;
+    }
+
+    .imageBox .header_btnBox
+    {
+        margin-bottom: 15px;
+        width: 95%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .header_btnBox button 
+    {
+        width: 100%;
+        padding: 15px 20px;
+        margin: 8px;
+        border-radius: 50px;
+        background: transparent;
+        border: 1px solid #000;
+    }
+    .imageBox img 
+    {
+        width: 100%;
+        height: auto;
+    }
+    /*Details Section*/
+    .mainBox .Details_Box
+    {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .Details_Box .mediabtns
+    {
+        margin: auto;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 25px;
+    }
+
+    .mediabtns button 
+    {
+        background: transparent;
+        border: 1px solid #ceced2;
+        border-radius: 8px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mediabtns #Icons
+    {
+        font-size: 16px;
+    }
+
+    .mediabtns .btnBox-one
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .btnBox-one .Liked
+    {
+        border: 1px solid #00ab6b;
+    }
+
+    .btnBox-one .squreIconBtn
+    {
+        height: 40px;
+        width: 40px;
+    }
+    .Details_Box #hr00
+    {
+        opacity: 0.3;
+    }
+    .profile
+    {
+        margin: auto;
+        width: 90%;
+        justify-content: space-between;
+        height: auto;
+        padding: 30px 0px;;
+    }
+
+    .profile .image_and_names
+    {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: space-between;
+    }
+
+    .profile_image 
+    {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        overflow: hidden;
+    }
+    .profile_image img
+    {
+        width: 100%;
+    }
+
+    .image_and_names .name_fallowers
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 9px;
+    }
+
+    .name_fallowers h3
+    {
+        font-size: 15px;
+    }
+
+    .name_fallowers p
+    {
+        font-size: 10px;
+    }
+
+    .profile .follow_btn
+    {
+        display: flex;
+        align-self: center;
+        color: #5a5959;
+    }
+    .follow_btn #follow
+    {
+        margin-right: 5px;
+    }
+    .Details_Box .donetBtn
+    {
+        width: 100%;
+        padding: 15px 0;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 50px;
+    }
+    .comment_main_box
+    {   
+        margin-top: 10px;
+        margin-bottom: 50px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        padding: 20px 0;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: #ceced293;
+    }
+    .comment_main_box .cmt_btns
+    {
+        margin-top: 10px;
+        display: flex;
+        width: 90%;
+    }
+    .cmt_btns button 
+    {
+        width: 100%;
+        padding: 12px 0;
+        margin: 8px;
+        border: 1px solid #000;
+        background: transparent;
+        border-radius: 50px;
+    }
+    .mainBox .Related_Image
+    {
+        width: 90%;
+    }
+}   
+
+@media only screen and (min-width: 767px){
+    .mainBox
+    {
+        max-width: 1830px;
+        width: 100%;
+        display: block;
+        padding-left: 32px;
+        padding-right: 32px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #ceced2;
+    }
+
+    .mainBox .imageBox 
+    {
+        width: 50%;
+        height: auto;
+        background-color: aqua;
+    }
+
+
+    .imageBox .Details_Box
+    {
+        display: none;
+    }
+
+    .imageBox .header_btnBox
+    {
+        display: none;
+    }
+
+    .mainBox .LargeSetup
+    {
+        width: 100%;
+        justify-content: space-between;
+        background-color: #00ab6b;
+        display: flex;
+    }
+}

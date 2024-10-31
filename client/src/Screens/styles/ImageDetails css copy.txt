@@ -1,0 +1,673 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+    .upper-box
+{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.upper-box .text_u
+{
+    margin: auto;
+    display: flex;
+    width: 90%;
+    background-color: rgba(190, 190, 190, 0.164);
+    padding: 8px 7px;
+    border-radius: 15px;
+}
+.text_u p
+{
+    font-size: 13px;
+    color: rgb(179, 179, 179);
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.text_u #correct_sign
+{
+    font-size: 16px;
+    color: #a8a8a8;
+}
+
+.btn-box-upper
+{
+    width: 95%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    margin-bottom: 15px;
+    position: sticky;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.btn-box-upper #main_buttons
+{
+    width: 80%;
+    padding: 17px 15px;
+    margin: 8px;
+    border: 1px solid #000;;
+    border-radius: 8px;
+    background: transparent;
+}
+
+
+.main_box
+{
+    width: 100%;
+    height: auto;
+    margin: auto ;
+    display: block;
+}
+
+.main_box .image_box
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    overflow: hidden;
+}
+
+.image_box img{
+    width: 100%;
+ }
+
+.main_box .Details_box
+{
+    width: auto;
+    height: auto;
+    display: flex;
+}
+
+.Details_box .boxInnerDetails
+{
+    width: 100%;
+    height: auto;
+}
+
+.space_between_box
+{
+    margin: auto;
+    width: 95%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.space_between_box button
+{
+    width: 100%;
+    margin: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    background: transparent;
+    border: 1px solid #d1d0d0;
+}
+
+.space_between_box #icon
+{
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.space_between_box #iconLiked
+{
+    width: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.space_between_box #icon_other
+{
+    margin-right: 0;
+    font-size: 15px;
+}
+
+
+
+.space_between_box .btn_sets_1
+{
+    width: 60%;
+    height: 6vh;
+    display: flex;
+}
+
+.btn_sets_1 .set_1_btn1
+{
+    width: 100%;
+    display: flex;
+    height: 6vh;
+}
+
+.set_1_btn1 .Liked
+{
+  border: 2px solid #00AB6B;
+}
+
+.btn_sets_1 .separete_btn
+{
+    width: 100%;
+    display: flex;
+}
+
+.space_between_box .btn_sets_2
+{
+    width: 30%;
+    height: 6vh;
+    display: flex;
+}
+
+#hr_rul
+{
+    opacity: 0.3;
+}
+
+#alt_discripction
+{
+    padding: 30px 0;
+    margin: auto;
+    width: 93%;
+}
+
+.profile
+{
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    padding: 15px 9px;;
+}
+
+.profile .image_and_names
+{
+    display: flex;
+}
+
+.profile_image 
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.profile_image img
+{
+    width: 100%;
+}
+
+.image_and_names .name_fallowers
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 9px;
+}
+
+.name_fallowers h3
+{
+    font-size: 15px;
+}
+
+.name_fallowers p
+{
+    font-size: 10px;
+}
+
+.profile .follow_btn
+{
+    display: flex;
+    align-self: center;
+    color: #a8a8a8;
+}
+.follow_btn #follow
+{
+    margin-right: 5px;
+}
+
+/*Image Info PopUp Box*/
+.Image-info_popup {
+    position: fixed;
+    bottom: -100%; /* Start off-screen */
+    left: 0;
+    width: 100%;
+    height: auto;;
+    background-color: white;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    transition: bottom 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  .Image-info_popup .popupHeader
+  {
+    margin: auto;
+    width: 100%;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+    .Image-info_popup hr
+    {
+        opacity: 0.2;
+    }
+
+  .Image-info_popup.open {
+    bottom: 0; 
+  }
+
+  .Image-info_popup .popupFotterDetails
+  {
+    width: 100%;
+    height: auto;
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popupFotterDetails .texts
+  {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3vh;
+    color: #818181;
+  }
+  .popupFotterDetails button
+  {
+    margin-top: 20px;
+    padding: 18px 0;
+    margin-bottom: 10px;
+    background: transparent;
+    border-radius: 50px;
+    border: 1px solid #818181
+  }
+
+  .main_box .after-profile
+  {
+    margin-top: 15px;
+     display: flex;
+     justify-content: center;
+     margin-bottom: 30px;
+  }
+
+  .after-profile button
+  {
+    width: 90%;
+    padding: 15px 0;
+    border-radius: 50px;
+    border: 1px solid #000;
+    background: transparent;
+  }
+
+  .comment_main_box
+  {
+    text-align: center;
+  }
+
+
+  .main_box .comment_main_box
+    {
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 10px;
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 15px;
+        background-color: #eeeeeed8;
+    }
+
+    .comment_main_box .cmt_btns
+    {
+        margin-top: 15px;
+        display: flex;
+        width: 90%;
+    }
+
+    .comment_main_box #cmt_h4
+    {
+        color: #585656;
+        margin-bottom: 8px;
+    }
+
+    .cmt_btns button 
+    {
+        width: 100%;
+        font-weight: bold;
+        margin: 5px;
+        font-size: 14px;
+        border-radius: 50px;
+        background: transparent;
+        border: 1px solid #999999a9;
+        padding: 14px 20px;
+        cursor: pointer;
+    }
+    .cmt_btns #login:hover
+    {
+        border: 1px solid #000000de;
+        cursor: pointer;
+    }
+
+
+    .comment_main_box #cmt_p
+    {
+        font-size: 13px;
+        font-weight: lighter;
+    }
+
+
+
+
+/*Start Pc Development*/
+
+@media only screen and (min-width: 1252px) {
+    .main_box
+    {
+        width: 90%;
+        height:auto;
+        margin: auto ;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+        justify-content: space-between;
+    }
+    .main_box .image_box
+    {
+        width: 60%;
+        height: auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image_box img{
+       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+       width: 50%;
+    }
+    .main_box .Details_box
+    {
+        width: 35%;
+        overflow-y: scroll;
+        height: 80vh;
+        padding: 15px 0px;
+        display: flex;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .Details_box .boxInnerDetails
+    {
+        height: auto;
+    }
+
+
+    .btn-box-lower .text_u
+    {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+
+    .text_u p
+    {
+        font-size: 13px;
+        color: rgb(179, 179, 179);
+        margin-left: 5px;
+        margin-top: 2px;
+    }
+
+    .text_u #correct_sign
+    {
+        font-size: 16px;
+        color: #a8a8a8;
+    }
+
+    .btn-box-lower
+    {
+        width: 90%;
+        margin: auto;
+        height: auto;
+        margin-bottom: 15px;
+        position: sticky;
+        margin-top: 10px;
+    }
+
+    
+    .btn-box-lower #main_buttons
+    {
+        width: 50%;
+        padding: 12px 15px;
+        cursor: pointer;
+        margin: 8px;
+        border: 1px solid #000;;
+        border-radius: 50px;
+        background: transparent;
+    }
+
+    /*Start Like share and save button section in Large Screnn*/
+    .btnbox_largescreen
+    {
+        margin: auto;
+        width: 90%;
+        display: flex;
+        padding: 8px 0;
+    }
+
+    .btnbox_largescreen button 
+    {
+        margin: 4px;
+        padding: 11px 0;
+        display: flex;
+        justify-content: center;
+        background: transparent;
+        align-items: center;
+        border: 1px solid #03030348;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .btnbox_largescreen button:hover
+    {
+        border: 1px solid #000;
+    }
+
+
+    .btnbox_largescreen .moreWidthbtn
+    {
+        display: flex;
+        width: 70%;
+    }
+
+    .moreWidthbtn #icon
+    {
+        font-weight: bold;
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    .btnbox_largescreen .lessWidthbtn
+    {
+        display: flex;
+        width: 30%;
+    }
+
+    .moreWidthbtn button
+    {
+        width: 100%;
+
+    }
+    .lessWidthbtn button 
+    {
+        width: 100%;
+    }
+    
+    .moreWidthbtn .Liked
+    {
+      border: 2px solid #00AB6B;
+    }
+
+    .moreWidthbtn #iconLiked
+    {
+    width: 14px;
+    margin-right: 5px;
+    }
+
+    .lessWidthbtn #icon_other
+    {
+        font-size: 16px;
+    }
+
+    .main_box #hr_rul
+    {
+        margin-top: 20px;
+    }
+
+
+    .profile
+    {
+        margin: auto;
+        margin-top: 20px;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        height: auto;
+        padding: 15px 9px;;
+    }
+
+    .profile .image_and_names
+    {
+        display: flex;
+    }
+
+    .profile_image 
+    {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        overflow: hidden;
+    }
+    .profile_image img
+    {
+        width: 100%;
+    }
+
+    .image_and_names .name_fallowers
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 9px;
+    }
+
+    .name_fallowers h3
+    {
+        font-size: 15px;
+    }
+
+    .name_fallowers p
+    {
+        font-size: 10px;
+    }
+
+    .profile .follow_btn
+    {
+        display: flex;
+        align-self: center;
+        color: #a8a8a8;
+    }
+    .follow_btn #follow
+    {
+        margin-right: 5px;
+    }
+    .ImageDetails_pc
+    {
+        margin: auto;
+        width: 90%;
+    }
+    .ImageDetails_pc .show_and_hide_btn button
+    {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        color: #a8a8a8;
+        font-size: 15px;
+    }
+    #Report_btn
+    {
+        margin-top: 30px;
+        width: 100%;
+        padding: 15px 0;
+        background: transparent;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }   
+    .image_box .comment_main_box
+    {
+        margin-top: 50px;
+        border-radius: 10px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        background-color: #f1f1f1d8;
+    }
+
+    .comment_main_box .cmt_btns
+    {
+        margin-top: 15px;
+        display: flex;
+        width: 90%;
+    }
+    .cmt_btns button 
+    {
+        width: 100%;
+        font-weight: bold;
+        margin: 10px;
+        font-size: 14px;
+        border-radius: 50px;
+        background: transparent;
+        border: 1px solid #999999a9;
+        padding: 12px 30px;
+        cursor: pointer;
+    }
+    .cmt_btns #login:hover
+    {
+        border: 1px solid #000000de;
+        cursor: pointer;
+    }
+
+
+    .comment_main_box #cmt_p
+    {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: lighter;
+    }
+}
+
+/*Meam Screen*/

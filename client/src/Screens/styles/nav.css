@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  margin: auto;
+  padding: 5px 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.0s ease;
+}
+
+
+
+.logo
+{
+  width: 13%;
+  margin-left: 30px;
+}
+.logo img
+{
+  width: 100%;
+}
+
+.main.fixed {
+  position: fixed;
+  top: 0;
+  padding: 15px 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.inputbox
+{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(226, 226, 226);
+  border-radius: 50px;
+}
+
+.inputbox .nav_search_input
+{
+  width: 100%;
+  padding: 15px 12px;
+  background-color: rgb(226, 226, 226);
+  border-radius: 50px;
+  font-size: 12px;
+  padding-left: 20px;
+}
+.inputbox #nav_search_ico
+{
+  position: relative;
+  left: 12px;
+  align-self: center;
+}
+
+.navbar_menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.navbar_menu #login-btn
+{
+  padding: 10px 25px;
+  background: rgba(196, 196, 196, 0.867);
+  border:none;
+  color: rgb(0, 0, 0);
+  border-radius: 25px;
+}
+
+.closeIcon {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+
+.navbar_menu li {
+  cursor: pointer;
+  align-self: center;
+  margin-right: 30px;
+  font-size: 18px;
+}
+
+.navbar_menu #sign_up{
+  padding: 10px 25px;
+  background: transparent;
+  border: 1px solid #000;
+  color: rgb(0, 0, 0);
+  border-radius: 25px;
+}
+
+.loadMore
+{
+  width: 95%;
+  padding: 25px ;
+  border-radius:  4px;
+  background-color: #000;
+  color: #ffff;
+  margin-bottom: 30px;
+  margin-top: 5%;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 938px ) {
+  .main {
+    padding: 8px 0;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    transition: background-color 0.3s ease;
+  }
+
+  .logo
+  {
+    width: 10%;
+    margin-left: 20px;
+  }
+
+  .logo img {
+    width: 70%;
+  }
+
+  .main.fixed {
+    position: fixed;
+    top: 0;
+    padding: 5px 0px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(180, 34, 34);
+    color: white;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.visible {
+    right: 0;
+  }
+
+  .menu-icon {
+    font-size: 35px;
+    cursor: pointer;
+    align-self: center;
+    display: block;
+    margin-right: 20px;
+  }
+
+  .closeIcon {
+    display: block;
+    color: aliceblue;
+    font-size: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .navbar_menu {
+    list-style-type: none;
+    padding-left: 15px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .navbar_menu li {
+    padding: 10px 12px;
+    width: 100%;
+    margin-right: 0;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+  }
+
+  .navbar_menu li:hover {
+    background-color: #444;
+  }
+  .btn_box
+  {
+    margin-right: 20px;
+  }
+
+  .btn_box .searchIcon_nav
+  {
+    font-size: 25px;
+    margin-right: 8px;
+  }
+
+  .btn_box button
+  {
+    padding: 10px 20px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin: 8px;
+  }
+  .btn_box  #login
+  {
+    background-color: rgb(216, 213, 213);
+    font-size: 15px;
+  }
+  .btn_box #join
+  {
+    font-size: 15px;
+    border: 1px solid #000;
+  }
+}
+
+
+
+@media only screen and (max-width: 500px )
+{
+  .logo
+  {
+    width: 12%;
+  }
+  .logo img
+  {
+    width: 100%;
+  }
+}
